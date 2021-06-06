@@ -7,7 +7,7 @@ An inside look at how the GitHub team uses Infrastructure as Code (IaC) to power
 
 ---
 
-![dot](docs/images/cut-here.png)
+![dot](images/cut-here.png)
 
 asdfsad
 
@@ -42,7 +42,7 @@ sdf
 
 ---
 
-![dot](docs/images/cut-here.png)
+![dot](images/cut-here.png)
 
 sf
 
@@ -56,7 +56,7 @@ sfsadf
 
 asdf
 
-![dot](docs/images/cut-here.png)
+![dot](images/cut-here.png)
 
 # asdfsa
 
