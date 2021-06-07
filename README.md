@@ -9,19 +9,19 @@ An inside look at how the GitHub team uses Infrastructure as Code (IaC) to power
 
 # Part-1
 
-## Some *"thoughts"* about IaC
+# Some *"thoughts"* about IaC
 
----
+![blank](docs/images/blank.png)
 
-### Understand ***Provisioning*** vs ***Configuring***
+## ***Provisioning*** vs ***Configuring***
 
 For many tools there are no clear boundries between Provisioning and Configuring.
 
 You can simply "stretch" them to do what you want :shrug:
 
----
+![blank](docs/images/blank.png)
 
-### What I like IaC to provide is...
+## IaC should give you an...
 
   - **Immutable** Infrastructure
     - unchangable, just destroy and rebuild it when needed
@@ -29,9 +29,9 @@ You can simply "stretch" them to do what you want :shrug:
   - **Idemtoptent** Infrastructure 
     - no matter how many times you run it, you get the same (declared) results
 
----
+![blank](docs/images/blank.png)
 
-### Where do you apply IaC in your Enterprise ?
+## Where do you apply IaC in your Enterprise ?
 
 #### *"Food for thought"*...
 
@@ -39,9 +39,9 @@ You can simply "stretch" them to do what you want :shrug:
 
 - Use it when you need a "realistic" target environment !
 
----
+![blank](docs/images/blank.png)
 
-### What's your Role in IaC ?
+## What's your Role in IaC ?
 
 You can look at IaC from many different "angles", based on that IaC provides different benefits for each.
 
@@ -49,13 +49,14 @@ You can look at IaC from many different "angles", based on that IaC provides dif
 |---|---|---|
 |Standup infrastructure when, where and for how long, you need it !<br><br> <li>**Self-Service !** <br>  <li>**Rapid Feedback !**||Automated Intrastructure <br><br> <li>**Standardization** <br> <li> **Workflow** <br> <li> **Control**|
 
+![blank](docs/images/blank.png)
+
 [:arrow_up: Top](#Top) - [:arrow_left: Previous](#Top) - [Next :arrow_right:](#Part-2)
 ![dot](docs/images/cut-here.png)
 
-
 # Part-2
 
-## IaC on GitHub
+# IaC on GitHub
 
 ---
 ### The *"parts"* of IaC
@@ -64,31 +65,40 @@ You can look at IaC from many different "angles", based on that IaC provides dif
 
 <table  border="0px"><tr><td><img src=docs/images/workflow-customization.png></td><td><b>Self-Service + Rapid Feedback</b></td></tr></table>
 
+![blank](docs/images/blank.png)
 
 [:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-1) - [Next :arrow_right:](#Part-3)
 ![dot](docs/images/cut-here.png)
 
 # Part-3
 
-## This is how we benefit from IaC
+# What can IaC do for you
 
-### At GitHub we work asynchronously, and to make that possible we have to...
+![blank](docs/images/blank.png)
+
+## At GitHub we work asynchronously, and to make that possible we have to...
   - Prevent resource *"bottlenecks"*
   - Enable **global collaboration**. Location and timezone become a minor issue.
 
-### We“centralize” our collaboration efforts through the GitHub Platform
+![blank](docs/images/blank.png)
+
+## We“centralize” our collaboration efforts through the GitHub Platform
+
+![blank](docs/images/blank.png)
 
 [:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-2) - [Next :arrow_right:](#Part-4)
 ![dot](docs/images/cut-here.png)
 
 # Part-4
 
-## The *"Demo-Stack"*
+# The *"Demo-Stack"*
 
-![ddstack](docs/images/service-account-engineer.png)
-### GitHub Professional services needs to setup GitHub Enterprise systems with a variaty of stack combinations, including 3rd party tools.
+<table  border="0px"><tr><td><img src=docs/images/service-account-engineer.png width="360px"></td><td><h3>GitHub Professional services uses IaC to setup GitHub Enterprise systems with a variaty of stack combinations, including 3rd party tools.</h3></td></tr></table>
 
 ![iac](docs/images/IaC-Hubot-concept.png)
+
+![blank](docs/images/blank.png)
+
 [:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-3) - [Next :arrow_right:](#Part-5)
 ![dot](docs/images/cut-here.png)
 
