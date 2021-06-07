@@ -8,7 +8,7 @@ An inside look at how the GitHub team uses Infrastructure as Code (IaC) to power
 ## dfadsffsda
 
 ![dot](docs/images/cut-here.png)
-:arrow_top: Top - :arrow_left: Previous - Next :arrow_right:
+:arrow_up: Top - :arrow_left: Previous - Next :arrow_right:
 
 ## dfadsffsda
 
