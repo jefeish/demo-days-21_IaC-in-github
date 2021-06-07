@@ -8,7 +8,7 @@ An inside look at how the GitHub team uses Infrastructure as Code (IaC) to power
 ## Part-1
 
 ### subtitle
-  
+![iac](docs/images/IaC-Hubot-concept.png)
 [:arrow_up: Top](#Top) - [:arrow_left: Previous](#Top) - [Next :arrow_right:](#Part-2)
 ![dot](docs/images/cut-here.png)
 ![iac](docs/images/demodays-iac.png)
