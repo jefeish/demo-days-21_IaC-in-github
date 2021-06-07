@@ -1,0 +1,5 @@
+export ARM_CLIENT_ID="414b8ac3-432b-4581-8973-be5e0400d548"
+export ARM_CLIENT_CERTIFICATE_PATH="/Users/jefeish/projects/developer-notebook/terraform/ghes-azure/certs/service-principal.pfx"
+export ARM_CLIENT_CERTIFICATE_PASSWORD="P@ssw0rd"
+export ARM_SUBSCRIPTION_ID="8d34f04f-62f1-4f1e-b1bf-228fc1e3081b"
+export ARM_TENANT_ID="72f988bf-86f1-41af-91ab-2d7cd011db47"
