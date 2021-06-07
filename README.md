@@ -11,7 +11,7 @@ An inside look at how the GitHub team uses Infrastructure as Code (IaC) to power
 
 # Some *"thoughts"* about IaC
 
-![blank](docs/images/blank.png)
+<br><br><br><br>
 
 ## ***Provisioning*** vs ***Configuring***
 
@@ -19,7 +19,7 @@ For many tools there are no clear boundries between Provisioning and Configuring
 
 You can simply "stretch" them to do what you want :shrug:
 
-![blank](docs/images/blank.png)
+<br><br><br><br>
 
 ## IaC should give you an...
 
@@ -29,7 +29,7 @@ You can simply "stretch" them to do what you want :shrug:
   - **Idemtoptent** Infrastructure 
     - no matter how many times you run it, you get the same (declared) results
 
-![blank](docs/images/blank.png)
+<br><br><br><br>
 
 ## Where do you apply IaC in your Enterprise ?
 
@@ -39,7 +39,7 @@ You can simply "stretch" them to do what you want :shrug:
 
 - Use it when you need a "realistic" target environment !
 
-![blank](docs/images/blank.png)
+<br><br><br><br>
 
 ## What's your Role in IaC ?
 
@@ -49,7 +49,7 @@ You can look at IaC from many different "angles", based on that IaC provides dif
 |---|---|---|
 |Standup infrastructure when, where and for how long, you need it !<br><br> <li>**Self-Service !** <br>  <li>**Rapid Feedback !**||Automated Intrastructure <br><br> <li>**Standardization** <br> <li> **Workflow** <br> <li> **Control**|
 
-![blank](docs/images/blank.png)
+<br><br><br><br>
 
 [:arrow_up: Top](#Top) - [:arrow_left: Previous](#Top) - [Next :arrow_right:](#Part-2)
 ![dot](docs/images/cut-here.png)
@@ -65,7 +65,7 @@ You can look at IaC from many different "angles", based on that IaC provides dif
 
 <table  border="0px"><tr><td><img src=docs/images/workflow-customization.png></td><td><b>Self-Service + Rapid Feedback</b></td></tr></table>
 
-![blank](docs/images/blank.png)
+<br><br><br><br>
 
 [:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-1) - [Next :arrow_right:](#Part-3)
 ![dot](docs/images/cut-here.png)
@@ -74,17 +74,17 @@ You can look at IaC from many different "angles", based on that IaC provides dif
 
 # What can IaC do for you
 
-![blank](docs/images/blank.png)
+<br><br><br><br>
 
 ## At GitHub we work asynchronously, and to make that possible we have to...
   - Prevent resource *"bottlenecks"*
   - Enable **global collaboration**. Location and timezone become a minor issue.
 
-![blank](docs/images/blank.png)
+<br><br><br><br>
 
 ## We“centralize” our collaboration efforts through the GitHub Platform
 
-![blank](docs/images/blank.png)
+<br><br><br><br>
 
 [:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-2) - [Next :arrow_right:](#Part-4)
 ![dot](docs/images/cut-here.png)
@@ -97,7 +97,7 @@ You can look at IaC from many different "angles", based on that IaC provides dif
 
 ![iac](docs/images/IaC-Hubot-concept.png)
 
-![blank](docs/images/blank.png)
+<br><br><br><br>
 
 [:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-3) - [Next :arrow_right:](#Part-5)
 ![dot](docs/images/cut-here.png)
