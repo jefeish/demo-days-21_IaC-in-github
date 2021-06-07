@@ -1,1 +1,5 @@
 theme: jekyll-theme-minimal
+title: GitHub Demo-Days 2021
+description: How GitHub uses infrastructure as code
+logo: docs/images/demo-days.png
+show_downloads: true
