@@ -9,39 +9,47 @@ An inside look at how the GitHub team uses Infrastructure as Code (IaC) to power
 
 ### <subtitle>
   
-[:arrow_up: Top](#####Top) - :arrow_left: Previous - Next :arrow_right:
+[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Top) - [Next :arrow_right:](#Part-2)
 ![dot](docs/images/cut-here.png)
-
-## Part-2
-
-### <subtitle>
 
 ## Part-2
 
 ### <subtitle>
   
-
+[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-1) - [Next :arrow_right:](#Part-2)
 ![dot](docs/images/cut-here.png)
 
-## dfadsffsda
+## Part-3
 
-adsf
-sdf
-asdf
+### <subtitle>
 
-sadf
-
-
-sdf
-sdf
-
-
-sdf
-sdf
-
-asdf
+[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-2) - [Next :arrow_right:](#Part-4)
 ![dot](docs/images/cut-here.png)
 
-## dfadsffsda
+## Part-4
 
+### <subtitle>
+
+[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-3) - [Next :arrow_right:](#Part-5)
+![dot](docs/images/cut-here.png)
+
+## Part-5
+
+### <subtitle>
+
+[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-4) - [Next :arrow_right:](#Part-6)
+![dot](docs/images/cut-here.png)
+
+## Part-6
+
+### <subtitle>
+
+[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-5) - [Next :arrow_right:](#Part-7)
+![dot](docs/images/cut-here.png)
+
+## Part-7
+
+### <subtitle>
+
+[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-6)
 ![dot](docs/images/cut-here.png)
