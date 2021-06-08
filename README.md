@@ -102,9 +102,11 @@ We can *"stretch"* the tools to do what we want but check twice if this is the b
 
 
 
-|![repo](docs/images/repo.png)|![repo](docs/images/repo.png)|![repo](docs/images/repo.png)|
-|---|---|---|
-|**Parameter** repository define IaC stack provisioning |Declaration repository define IaC stack|Store IaC stack state|
+|||
+|---|---|
+|![repo](docs/images/repo.png)|**Parameter** repository define stack provisioning |
+![repo](docs/images/repo.png)|**Declaration** repository define stack|
+![repo](docs/images/repo.png)|**Store** stack state|
 
 <br><br>
 ### IaC follows the GitHub workflow 
@@ -134,6 +136,32 @@ We can *"stretch"* the tools to do what we want but check twice if this is the b
 
 ![iac](docs/images/IaC-Hubot-concept.png)
 
+
+<br><br><br><br>
+
+### Step 1
+
+```bash
+$>
+```
+
+### Step 2
+
+```bash
+$>
+```
+
+### Step 3
+
+```bash
+$>
+```
+
+### Step 4
+
+```bash
+$>
+```
 
 <br><br><br><br>
 
