@@ -67,7 +67,7 @@ We can *"stretch"* the tools to do what we want but check twice if this is the b
 ## What makes IaC work ?!
 
 - ### Ideally your source control platform (GitHub) has to be your source of truth!
-  - #### If a resource is not declared in GitHub IaC it should not exist
+  - #### If a resource is not declared in GitHub-IaC it should not exist
 - ### Avoid Infrastructure changes outside the IaC workflow (Drift)
   - #### IaC workflow== GitHub workflow
 - ### Trust your IaC! 
@@ -81,7 +81,7 @@ We can *"stretch"* the tools to do what we want but check twice if this is the b
 
 ## What's your Role in IaC ?
 
-You can look at IaC from many different "angles", based on that IaC provides different benefits for each.
+### You can look at IaC from many different "angles", based on that IaC provides different benefits for each.
 
 |Developer|vs|Maintainer|
 |---|---|---|
@@ -112,7 +112,7 @@ You can look at IaC from many different "angles", based on that IaC provides dif
 
 # Part-3
 
-# What does IaC provide
+# What does IaC mean to us
 
 <br><br><br><br>
 
@@ -135,7 +135,10 @@ You can look at IaC from many different "angles", based on that IaC provides dif
 
 <table  border="0px"><tr><td><img src=docs/images/service-account-engineer.png width="360px"></td><td><h3>GitHub Professional services uses IaC to setup GitHub Enterprise systems with a variaty of stack combinations, including 3rd party tools.</h3></td></tr></table>
 
+![dd-stack](docs/images/iac-stack.png)
+
 ![iac](docs/images/IaC-Hubot-concept.png)
+
 
 <br><br><br><br>
 
