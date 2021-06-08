@@ -11,13 +11,15 @@ An inside look at how the GitHub team uses Infrastructure as Code (IaC) to power
 
 # Some *"thoughts"* about IaC
 
-<br><br><br><br>
+<br><br>
 
 ## ***Provisioning*** vs ***Configuring***
 
-For many tools there are no clear boundries between Provisioning and Configuring.
+![cvc](docs/images/demodays-provision-config.png)
 
-You can simply "stretch" them to do what you want :shrug:
+Many IaC tools provide no clear boundries between Provisioning and Configuring.
+
+You can simply *"stretch"* them to do what you want
 
 <br><br><br><br>
 
@@ -37,7 +39,9 @@ You can simply "stretch" them to do what you want :shrug:
 
 - Do you need the power of a full infrastructure for your build process ? Or would Docker be enough ?
 
-- Use it when you need a "realistic" target environment !
+- Use it when you need a "realistic" test environment !
+
+- Use it to maintain a fully managed Production environemnt
 
 <br><br><br><br>
 
@@ -61,7 +65,9 @@ You can look at IaC from many different "angles", based on that IaC provides dif
 ---
 ### The *"parts"* of IaC
 
-![iac](docs/images/demodays-iac.png)
+
+![iac](docs/images/demodays-iac-parts.png)
+
 
 <table  border="0px"><tr><td><img src=docs/images/workflow-customization.png></td><td><b>Self-Service + Rapid Feedback</b></td></tr></table>
 
