@@ -2,7 +2,9 @@
 ##### Top
 <img width="1500" alt="demo-days" src="https://user-images.githubusercontent.com/863198/120851502-e7118600-c546-11eb-9dc9-0171dd09b9ee.png">
 
-An inside look at how the GitHub team uses Infrastructure as Code (IaC) to power a successful unified DevOps platform. We will demonstrate how we use the principles of shared ownership and rapid feedback, empowered by automation, to deploy GitHub safely and reliably at scale
+### An inside look at how the GitHub team uses Infrastructure as Code (IaC) to power a successful unified DevOps platform. 
+
+### We will demonstrate how we use the principles of shared ownership and rapid feedback, empowered by automation, to deploy GitHub safely and reliably at scale
 
 ![dot](docs/images/cut-here.png)
 
@@ -103,13 +105,6 @@ We can *"stretch"* the tools to do what we want but check twice if this is the b
 
 ![iac](docs/images/demodays-iac-parts.png)
 
-
-
-|||
-|---|---|
-|![repo](docs/images/repo.png)|**Parameter** repository define stack provisioning |
-![repo](docs/images/repo.png)|**Declaration** repository define stack|
-![repo](docs/images/repo.png)|**Store** stack state|
 
 <br><br>
 ### IaC follows the GitHub workflow 
