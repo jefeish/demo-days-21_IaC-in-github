@@ -22,12 +22,8 @@ RUN adduser --disabled-password -s /bin/bash hubot && \
     apk add bash && \
     apk add jq && \
     apk add openssh && \
-    npm install -g hubot coffeescript yo generator-hubot
-
-# Apple only
-#ADD "https://pages.github.pie.apple.com/crypto-services/trust-apple-corp-root-cas/trust_apple_corp_root_cas.sh" "/usr/local/bin"
-#RUN chmod 755 "/usr/local/bin/trust_apple_corp_root_cas.sh" && \
-#    bash "/usr/local/bin/trust_apple_corp_root_cas.sh"
+    npm install -g hubot coffeescript yo generator-huboti && \
+    wget https://releases.hashicorp.com/terraform/0.15.5/terraform_1.15.5_linux_amd64.zip && unzip -d /usr/local/bin/ ./terraform_1.15.5_linux_amd64.zip
 
 USER hubot
 WORKDIR /home/hubot
@@ -43,8 +39,5 @@ RUN yo hubot --owner="${HUBOT_OWNER}" --name="${HUBOT_NAME}" --description="${HU
     npm install $(node -e "console.log('$INSTALL_PACKAGES'.split(',').join(' '))") --save
 
 VOLUME ["/home/hubot/scripts"]
-
-# Hubot 'Logger' patch
-COPY patch/hubot/robot.js /home/hubot/node_modules/hubot/src/robot.js
 
 CMD bin/hubot -n $HUBOT_NAME --adapter ${HUBOT_ADAPTER}
