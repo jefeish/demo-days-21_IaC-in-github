@@ -17,31 +17,65 @@ An inside look at how the GitHub team uses Infrastructure as Code (IaC) to power
 
 ![cvc](docs/images/demodays-provision-config.png)
 
-Many IaC tools provide no clear boundries between Provisioning and Configuring.
+- ### We create Infrastructure to host applications or services
 
-You can simply *"stretch"* them to do what you want
+Our IaC should focus on the infrastructure part as much as possible and be decoupled from the service configuration.
+This is easier said then done, I know, but take it as a guideline. 
+
+If too much application/service specific configuration ends up in IaC, you might create dependencies between IaC and the app that can become difficult to detangle.
+
+As always there are edgecases or *"exceptions to the rule"* and an Appliance can be such a case. 
+
+Bundled with a preconfigured OS, it requires certain application configuration to be added to your IaC.
+If you use your IaC in an ephemeral way, this might never become a problem but if you maintain a larger production (long lived) infrastructure, maintaining these configuration can be challenging.
+
+Basic *"Rule of thumb"*... 
+
+- Provisioned infrastructure usually requires some baseline configuration, network settings, system settings etc. but beyond that baseline no application level configuration should be included.
+
+>Note: Many IaC tools provide no clear boundries between Provisioning and Configuring.
+We can *"stretch"* the tools to do what we want but check twice if this is the best solution.
 
 <br><br><br><br>
 
-## IaC should give you an...
+## IaC should give you...
 
-  - **Immutable** Infrastructure
+  - ### **Immutable** Infrastructure
     - unchangable, just destroy and rebuild it when needed
 
-  - **Idemtoptent** Infrastructure 
+  - ### **Idemtoptent** Infrastructure 
     - no matter how many times you run it, you get the same (declared) results
+
+  - ### **An automated process** to setup consistent, managed infrastructure.
+
+  - ### **Change-Control** not *"Change-Forensics"*
 
 <br><br><br><br>
 
-## Where do you apply IaC in your Enterprise ?
+## Where to apply IaC in your Enterprise ?
 
-#### *"Food for thought"*...
+### *"Food for thought"*...
 
-- Do you need the power of a full infrastructure for your build process ? Or would Docker be enough ?
+- ### Do you need the power of a full infrastructure for your build process ? Or would Docker be enough ?
 
-- Use it when you need a "realistic" test environment !
+- ### Use it when you need a "realistic" test environment (ephemeral) !
 
-- Use it to maintain a fully managed Production environemnt
+- ### Use it to maintain a fully managed Production environment
+
+<br><br><br><br>
+
+## What makes IaC work ?!
+
+- ### Ideally your source control platform (GitHub) has to be your source of truth!
+  - #### If a resource is not declared in GitHub IaC it should not exist
+- ### Avoid Infrastructure changes outside the IaC workflow (Drift)
+  - #### IaC workflow== GitHub workflow
+- ### Trust your IaC! 
+  - #### Know that your IaC is still valid and up to date. Excercise frequent infrastructure rebuilds with you IaC, even production.
+
+
+
+
 
 <br><br><br><br>
 
@@ -49,9 +83,9 @@ You can simply *"stretch"* them to do what you want
 
 You can look at IaC from many different "angles", based on that IaC provides different benefits for each.
 
-|User|vs|Maintainer|
+|Developer|vs|Maintainer|
 |---|---|---|
-|Standup infrastructure when, where and for how long, you need it !<br><br> <li>**Self-Service !** <br>  <li>**Rapid Feedback !**||Automated Intrastructure <br><br> <li>**Standardization** <br> <li> **Workflow** <br> <li> **Control**|
+|**Self-Service** <br> **Rapid Feedback**||**Standardization** <br> **Workflow** <br> **Control**|
 
 <br><br><br><br>
 
@@ -78,17 +112,17 @@ You can look at IaC from many different "angles", based on that IaC provides dif
 
 # Part-3
 
-# What can IaC do for you
+# What does IaC provide
 
 <br><br><br><br>
 
 ## At GitHub we work asynchronously, and to make that possible we have to...
-  - Prevent resource *"bottlenecks"*
-  - Enable **global collaboration**. Location and timezone become a minor issue.
+  - ### Prevent resource *"bottlenecks"*
+  - ### Enable **global collaboration**. Location and timezone become a minor issue.
 
 <br><br><br><br>
 
-## We“centralize” our collaboration efforts through the GitHub Platform
+## We “centralize” our collaboration efforts through the GitHub Platform
 
 <br><br><br><br>
 
