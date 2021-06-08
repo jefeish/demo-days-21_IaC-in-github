@@ -19,15 +19,16 @@ An inside look at how the GitHub team uses Infrastructure as Code (IaC) to power
 
 - ### We create Infrastructure to host applications or services
 
-Our IaC should focus on the infrastructure part as much as possible and be decoupled from the service configuration.
-This is easier said then done, I know, but take it as a guideline. 
+IaC should focus on the infrastructure part as much as possible and be decoupled from the service configuration.
+This is easier said then done, but take it as a guideline. 
 
-If too much application/service specific configuration ends up in IaC, you might create dependencies between IaC and the app that can become difficult to detangle.
+If too much application/service specific configuration ends up in IaC, you create dependencies between IaC and the app that can become difficult to detangle. 
 
-As always there are edgecases or *"exceptions to the rule"* and an Appliance can be such a case. 
+As always there are edgecases or *"exceptions to the rule"* and an Appliance can be such a case.
 
 Bundled with a preconfigured OS, it requires certain application configuration to be added to your IaC.
-If you use your IaC in an ephemeral way, this might never become a problem but if you maintain a larger production (long lived) infrastructure, maintaining these configuration can be challenging.
+
+If you use your IaC in an ephemeral way, this might never become a problem but if you maintain a larger production (long lived) infrastructure, maintaining these configurations can become challenging.
 
 Basic *"Rule of thumb"*... 
 
@@ -40,13 +41,20 @@ We can *"stretch"* the tools to do what we want but check twice if this is the b
 
 ## IaC should give you...
 
-  - ### **Immutable** Infrastructure
-    - unchangable, just destroy and rebuild it when needed
+  - ### **Immutable** Infrastructure (cats vs cattle)
+    - #### unchangable, just destroy and rebuild it when needed
+
+
+<br>
 
   - ### **Idemtoptent** Infrastructure 
-    - no matter how many times you run it, you get the same (declared) results
+    - #### no matter how many times you run it, you get the same (declared) results
+
+<br>
 
   - ### **An automated process** to setup consistent, managed infrastructure.
+
+<br>
 
   - ### **Change-Control** not *"Change-Forensics"*
 
@@ -66,53 +74,42 @@ We can *"stretch"* the tools to do what we want but check twice if this is the b
 
 ## What makes IaC work ?!
 
-- ### Ideally your source control platform (GitHub) has to be your source of truth!
+- ### Ideally your source control platform (GitHub) has to be the source of truth!
   - #### If a resource is not declared in GitHub-IaC it should not exist
+
+<br>
+
 - ### Avoid Infrastructure changes outside the IaC workflow (Drift)
-  - #### IaC workflow== GitHub workflow
+  - #### IaC workflow == GitHub workflow
+
+<br>
+
 - ### Trust your IaC! 
-  - #### Know that your IaC is still valid and up to date. Excercise frequent infrastructure rebuilds with you IaC, even production.
-
-
-
+  - #### Know that your IaC is still valid and up to date. 
+  - #### Excercise frequent infrastructure rebuilds with you IaC, even production.
 
 
 <br><br><br><br>
 
-## What's your Role in IaC ?
-
-### You can look at IaC from many different "angles", based on that IaC provides different benefits for each.
-
-|Developer|vs|Maintainer|
-|---|---|---|
-|**Self-Service** <br> **Rapid Feedback**||**Standardization** <br> **Workflow** <br> **Control**|
-
-<br><br><br><br>
-
-[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Top) - [Next :arrow_right:](#Part-2)
-![dot](docs/images/cut-here.png)
 
 # Part-2
 
 # IaC on GitHub
 
----
-### The *"parts"* of IaC
-
+### *"Parts"* of IaC
 
 ![iac](docs/images/demodays-iac-parts.png)
 
 
-<table  border="0px"><tr><td><img src=docs/images/workflow-customization.png></td><td><b>Self-Service + Rapid Feedback</b></td></tr></table>
 
-<br><br><br><br>
+|![repo](docs/images/repo.png)|![repo](docs/images/repo.png)|![repo](docs/images/repo.png)|
+|---|---|---|
+|**Parameter** repository define IaC stack provisioning |Declaration repository define IaC stack|Store IaC stack state|
 
-[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-1) - [Next :arrow_right:](#Part-3)
-![dot](docs/images/cut-here.png)
+<br><br>
+### IaC follows the GitHub workflow 
 
-# Part-3
-
-# What does IaC mean to us
+![dot](docs/images/github-workflow.png)
 
 <br><br><br><br>
 
@@ -122,51 +119,22 @@ We can *"stretch"* the tools to do what we want but check twice if this is the b
 
 <br><br><br><br>
 
-## We “centralize” our collaboration efforts through the GitHub Platform
-
-<br><br><br><br>
-
 [:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-2) - [Next :arrow_right:](#Part-4)
 ![dot](docs/images/cut-here.png)
-
-# Part-4
+# Part-3
 
 # The *"Demo-Stack"*
 
 <table  border="0px"><tr><td><img src=docs/images/service-account-engineer.png width="360px"></td><td><h3>GitHub Professional services uses IaC to setup GitHub Enterprise systems with a variaty of stack combinations, including 3rd party tools.</h3></td></tr></table>
 
+
 ![dd-stack](docs/images/iac-stack.png)
+
+## IaC & Self-Service
 
 ![iac](docs/images/IaC-Hubot-concept.png)
 
 
 <br><br><br><br>
 
-[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-3) - [Next :arrow_right:](#Part-5)
-![dot](docs/images/cut-here.png)
-
-# Part-5
-
-### subtitle
-
-[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-4) - [Next :arrow_right:](#Part-6)
-![dot](docs/images/cut-here.png)
-
-# Part-6
-
-### subtitle
-
-[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-5) - [Next :arrow_right:](#Part-7)
-![dot](docs/images/cut-here.png)
-
-## Part-7
-
-### subtitle
-
-[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-6)
-![dot](docs/images/cut-here.png)
-
-
-
-
-
+[:arrow_up: Top](#Top) - [:arrow_left: Previous](#Part-2)
