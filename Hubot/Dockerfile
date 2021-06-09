@@ -25,8 +25,6 @@ RUN adduser --disabled-password -s /bin/bash hubot && \
     npm install -g hubot coffeescript yo generator-hubot && \
     npm install githubot && \
     apk add terraform
-# RUN wget https://releases.hashicorp.com/terraform/0.15.5/terraform_1.15.5_linux_amd64.zip 
-# RUN unzip -d /usr/local/bin/ ./terraform_1.15.5_linux_amd64.zip
 
 USER hubot
 WORKDIR /home/hubot
@@ -42,8 +40,5 @@ RUN yo hubot --owner="${HUBOT_OWNER}" --name="${HUBOT_NAME}" --description="${HU
     npm install $(node -e "console.log('$INSTALL_PACKAGES'.split(',').join(' '))") --save
 
 VOLUME ["/home/hubot/scripts"]
-
-# Hubot 'Logger' patch
-COPY patch/hubot/robot.js /home/hubot/node_modules/hubot/src/robot.js
 
 CMD bin/hubot -n $HUBOT_NAME --adapter ${HUBOT_ADAPTER}
