@@ -50,11 +50,11 @@ You should have an AWS account and setup the local AWS CLI environment, see the
 
 Some useful information on [Hubot](https://hubot.github.com/docs/). 
 
-The Repository already contains a Hubot project, so there should be no need to setup a new project, form scratch, but this information can provide a better understanding.
+The Repository already contains a Hubot project, so there should be no need to setup a new project, but this information can provide a better understanding.
 
 ### ChatOps
 
-Make sure you have a Slack account, since we are using the Slack and the [Hubot Slack adapter](https://slack.dev/hubot-slack/) for this demo (other Hubot adapters are available)
+Make sure you have a Slack account, since we are using Slack and the [Hubot Slack adapter](https://slack.dev/hubot-slack/) for this demo (other Hubot adapters are available)
 
 Here are some notes on how to [install a Slack Bot](https://api.slack.com/authentication/migration#classic), to support our Hubot and enable the Self-Service.
 
