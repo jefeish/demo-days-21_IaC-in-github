@@ -6,10 +6,10 @@
 #/ 
 #/  USAGE
 #/
-#/      iac-deploy.sh <provider> <version> <apply|destroy>
+#/      iac-deploy.sh -a <apply|destroy> -c <aws|azure> -v <version> -o <owner>
 #/   
 #/      Example:
-#/          iac-deploy.sh aws 3.0.1 apply
+#/          iac-deploy.sh 
 #/
 #/
 #/  REQUIREMENTS:
@@ -55,9 +55,9 @@ else
 fi
 
 # set the Terraform environment
-TERRAFORM_PLAN_PATH="../../IaC/terraform/ghes/$(echo ${PROVIDER}| awk '{ print tolower($0) }')"
-TERRAFORM_STATE_PATH="./state"
+TERRAFORM_PLAN_PATH="/Users/jefeish/projects/demo-days-21_IaC-in-github/IaC/terraform/ghes/$(echo ${PROVIDER}| awk '{ print tolower($0) }')"
+TERRAFORM_STATE_PATH="./state/${OWNER}/${VERSION}/terraform.tfstate"
 
 # execute the Terraform IaC
-echo "cd  ${TERRAFORM_PLAN_PATH}/ && terraform ${ACTION} -var=\"ghes_version=${VERSION}\" -state=${TERRAFORM_STATE_PATH}/${OWNER}/${VERSION}/terraform.tfstate"
-cd ${TERRAFORM_PLAN_PATH}/ && terraform init && echo "yes" | terraform ${ACTION} -state=${TERRAFORM_STATE_PATH}/${OWNER}/${VERSION}/terraform.tfstate 
+# echo "cd  ${TERRAFORM_PLAN_PATH}/ && terraform ${ACTION} -var=\"ghes_version=${VERSION}\" -state=${TERRAFORM_STATE_PATH}"
+cd ${TERRAFORM_PLAN_PATH}/ && terraform init -no-color && echo "yes" | terraform ${ACTION} -no-color -state=${TERRAFORM_STATE_PATH} && terraform output -no-color -state=${TERRAFORM_STATE_PATH}
