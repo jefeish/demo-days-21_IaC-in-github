@@ -22,12 +22,11 @@ RUN adduser --disabled-password -s /bin/bash hubot && \
     apk add bash && \
     apk add jq && \
     apk add openssh && \
-    npm install -g hubot coffeescript yo generator-hubot
-
-# Apple only
-#ADD "https://pages.github.pie.apple.com/crypto-services/trust-apple-corp-root-cas/trust_apple_corp_root_cas.sh" "/usr/local/bin"
-#RUN chmod 755 "/usr/local/bin/trust_apple_corp_root_cas.sh" && \
-#    bash "/usr/local/bin/trust_apple_corp_root_cas.sh"
+    npm install -g hubot coffeescript yo generator-hubot && \
+    npm install githubot && \
+    apk add terraform
+# RUN wget https://releases.hashicorp.com/terraform/0.15.5/terraform_1.15.5_linux_amd64.zip 
+# RUN unzip -d /usr/local/bin/ ./terraform_1.15.5_linux_amd64.zip
 
 USER hubot
 WORKDIR /home/hubot

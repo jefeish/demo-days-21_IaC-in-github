@@ -21,6 +21,7 @@
 exports.__esModule = true;
 
 module.exports = function (robot) {
+    const github = require('githubot')(robot)
     var http = require('http');
     var util = require('util');
     var run_cmd = function (cmd, args, cb) {
@@ -35,7 +36,17 @@ module.exports = function (robot) {
     robot.hear(/orly/, function (res) { return res.send("<http://www.foo.com|This message *is* a link> :scream:"); });
 
     robot.hear(/.ghes/, function (res) {
-
+        exec("./command.sh", (error, stdout, stderr) => {
+            if (error) {
+                console.log(`error: ${error.message}`);
+                return;
+            }
+            if (stderr) {
+                console.log(`stderr: ${stderr}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+        });
     });
 
     robot.hear(/dilbert$/, function (res) {

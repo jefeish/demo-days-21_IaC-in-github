@@ -1,5 +1,6 @@
 #!/bin/bash
 # export HUBOT_GITHUB_API=34.221.230.104
+# export HUBOT_ADAPTER=campfire
 export HUBOT_ADAPTER=slack
 export HUBOT_GITHUB_API=github.com
 export HUBOT_GITHUB_TOKEN=aaa6a789e2ba4f89ca9f5cb1e6b4573c104f897f
