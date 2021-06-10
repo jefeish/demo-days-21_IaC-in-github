@@ -1,0 +1,7 @@
+
+Error: A resource with the ID "/subscriptions/8d34f04f-62f1-4f1e-b1bf-228fc1e3081b/resourceGroups/ghesResourceGroup/providers/Microsoft.Compute/virtualMachines/GHES-VM-v3.1.0" already exists - to be managed via Terraform this resource needs to be imported into the State. Please see the resource documentation for "azurerm_linux_virtual_machine" for more information.
+
+  on main.tf line 222, in resource "azurerm_linux_virtual_machine" "ghes-vm":
+ 222: resource "azurerm_linux_virtual_machine" "ghes-vm" {
+
+
