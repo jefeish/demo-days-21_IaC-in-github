@@ -60,4 +60,26 @@ TERRAFORM_STATE_PATH="./state/${OWNER}/${VERSION}/terraform.tfstate"
 
 # execute the Terraform IaC
 # echo "cd  ${TERRAFORM_PLAN_PATH}/ && terraform ${ACTION} -var=\"ghes_version=${VERSION}\" -state=${TERRAFORM_STATE_PATH}"
-cd ${TERRAFORM_PLAN_PATH}/ && terraform init -no-color && echo "yes" | terraform ${ACTION} -no-color -state=${TERRAFORM_STATE_PATH} && terraform output -no-color -state=${TERRAFORM_STATE_PATH}
+cd ${TERRAFORM_PLAN_PATH}/
+
+r1=$(terraform-v0.15.0 init -no-color)
+
+if [ "$?" = "1" ]; then
+    echo "@${OWNER} :wave:, failed to initialize"
+    exit 1
+else
+    echo "@${OWNER} :wave:, initialized GHES (v${VERSION})"
+fi
+
+echo ":wave: @${OWNER}, now building your _IaC_"
+set -x
+echo 'yes' | terraform-v0.15.0 ${ACTION} -state=${TERRAFORM_STATE_PATH}
+
+if [ "$?" = "1" ]; then
+    echo ":wave: @${OWNER}, sorry but I failed to stand up your GHES (v${VERSION}) infrastructure :( "
+    echo ">>>> $r2"
+    exit 1
+else
+    r3=$(terraform-v0.15.0 output -no-color -state=${TERRAFORM_STATE_PATH} )
+    echo $r3
+fi
