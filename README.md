@@ -12,7 +12,7 @@
 
 This repository contains the code to build a **Terraform** based, **Hubot** supported, **self-services** IaC setup, on **multiple cloud** environments (Azure, AWS). 
 
-It it meant as an example of what we do in GitHub (at a larger scale).
+It is meant as an example of what we do in GitHub (at a larger scale).
 
 See the picture below for the workflow overview.
 
