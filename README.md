@@ -21,6 +21,7 @@ See the picture below for the workflow overview.
 The IaC declaration(s) in this Repository stand up a basic (minimal) GitHub Enterprise Server, of any version that is currently available as an Appliance.
 
 ### An example of the basic stack
+
 ![dd-stack](docs/images/iac-stack.png)
 
 [:arrow_up: Top](#Top) 
