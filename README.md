@@ -91,7 +91,7 @@ For simplicity let's assume you cloned it into your **Home-Folder** (`~/`)
     ```
 
 - The running Hubot App will remain in the forground.
-- Go to your Slack page and check the connectivity by typing **`ping`**
+- Go to your Slack page and check the connectivity by going to the hubot App and typing **`ping`**
 
     ![slack](docs/images/slack-hubot.png)
 
