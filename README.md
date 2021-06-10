@@ -1,5 +1,7 @@
 # Demo Days 2021 - How GitHub uses infrastructure as code
+
 ##### Top
+
 <img width="1500" alt="demo-days" src="https://user-images.githubusercontent.com/863198/120851502-e7118600-c546-11eb-9dc9-0171dd09b9ee.png">
 
 ### An inside look at how the GitHub team uses Infrastructure as Code (IaC) to power a successful unified DevOps platform. 
@@ -29,7 +31,6 @@ The IaC declaration(s) in this Repository stand up a basic (minimal) GitHub Ente
 
 ## Requirements
 
-
 ### Terraform
 
 Make sure you have [Terraform installed](https://learn.hashicorp.com/tutorials/terraform/install-cli) on your localhost
@@ -56,6 +57,7 @@ Some useful information on [Hubot](https://hubot.github.com/docs/).
 The Repository already contains a Hubot project, so there should be no need to setup a new project, but this information can provide a better understanding.
 
 ### ChatOps
+
 (Slack)
 
 Make sure you have a Slack account, since we are using Slack and the [Hubot Slack adapter](https://slack.dev/hubot-slack/) for this demo (other Hubot adapters are available)
@@ -67,9 +69,11 @@ Here are some notes on how to [install a Slack Bot](https://app.slack.com/apps/A
 ![dot](docs/images/cut-here.png)
 
 ![](docs/images/service-account-engineer.png)
+
 ##  Setup
 
 ### Step 0: 
+
 #### ...you have cloned this Repoitory :wink:
 
 For simplicity let's assume you cloned it into your **Home-Folder** (`~/`)
@@ -81,11 +85,13 @@ For simplicity let's assume you cloned it into your **Home-Folder** (`~/`)
 > Note: Make sure you completed the **[ChatOps](#ChatOps)** requirements and you now have a Bot **API Token**, as well as seeing a Hubot App in your Slack site.
 
 - Set the Bot **API Token** as an environment variable
+
     ```bash
     export HUBOT_SLACK_TOKEN=xoxb-12345...
     ```
 
 - Connect the **Hubot App** with the **Slack Bot**
+
     ```bash
     cd ~/demo-days-21_IaC-in-github
     ./bin/hubot -a slack
@@ -96,16 +102,17 @@ For simplicity let's assume you cloned it into your **Home-Folder** (`~/`)
 
     ![slack](docs/images/slack-hubot.png)
 
-#### If you see this, you are connected ! 
+#### If you see this, you are connected !
 
 ---
+
 ### Step 2
 
 #### Prepare the **IaC** code.
 
 >Note: For this Demo we are "managing" the statefiles locally, in side the Repository. The next step shows the locations of the **state-files** 
 
-- Make sure there are no old ***State-Files*** in the **IaC** folders, there should not be, but just incase.
+- Make sure there are no old ***State-Files*** in the **IaC** folders, there should not be, but just in case.
 
   - `~/demo-days-21_IaC-in-github/IaC/terraform/ghes/aws/state`
   - `~/demo-days-21_IaC-in-github/IaC/terraform/ghes/azure/state`
@@ -143,16 +150,17 @@ tail -f ~/demo-days-21_IaC-in-github/hubot/hubot.log
     This command trigger the **IaC** and have Hubot respond with...
     ![hubot-response-1](docs/images/hubot-response-1.png)
 
-
 - This is wat you should expect from hubot (in Slack)...
 
    ![hubot-response-2](docs/images/hubot-response-2.png)
+
 #### After that run finishes we should be in a "happy place!" :smile:
+
 ---
 
 ### Step 4
 
-#### Let's check what created
+#### Let's check what got created
 
 - The GitHub WebUI should start with this (...got to bring your licencse :shrug:)
 
@@ -182,7 +190,8 @@ tail -f ~/demo-days-21_IaC-in-github/hubot/hubot.log
   ```
 
    #### Immutable / Idempotent
-   - Can destroy the full stack, with all its resources and recreate it at any time 
+
+   - We can destroy the full stack, with all its resources and recreate it at any time
    - We do not create multiple instances of the same version when we re-run the same IaC
    > Note: We do allow for multiple stacks of different versions
 
