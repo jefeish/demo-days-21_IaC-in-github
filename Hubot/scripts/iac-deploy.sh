@@ -27,7 +27,7 @@ PROVIDER=""
 ACTION="plan"
 VERSION="3.1.0"
 OWNER="demo"
-CMD="terraform-v0.15.0"
+CMD="terraform"
 HUBOT_LOG="$PWD/hubot.log"
 
 function usage() {
