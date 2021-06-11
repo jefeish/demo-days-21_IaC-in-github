@@ -15,7 +15,7 @@ provider "azurerm" {
 
 # Create a resource group if it doesn't exist
 resource "azurerm_resource_group" "ghes-group" {
-  name     = "ghesResourceGroup"
+  name     = "${var.stack_name}-ghesResourceGroup"
   location = "eastus"
 
   tags = {
@@ -25,7 +25,7 @@ resource "azurerm_resource_group" "ghes-group" {
 
 # Create virtual network
 resource "azurerm_virtual_network" "ghes-network" {
-  name                = "ghesVnet"
+  name                = "${var.stack_name}-ghesVnet"
   address_space       = ["10.0.0.0/16"]
   location            = "eastus"
   resource_group_name = azurerm_resource_group.ghes-group.name
@@ -37,7 +37,7 @@ resource "azurerm_virtual_network" "ghes-network" {
 
 # Create subnet
 resource "azurerm_subnet" "ghes-subnet" {
-  name                 = "ghesSubnet"
+  name                 = "${var.stack_name}-ghesSubnet"
   resource_group_name  = azurerm_resource_group.ghes-group.name
   virtual_network_name = azurerm_virtual_network.ghes-network.name
   address_prefixes     = ["10.0.1.0/24"]
@@ -45,7 +45,7 @@ resource "azurerm_subnet" "ghes-subnet" {
 
 # Create public IPs
 resource "azurerm_public_ip" "ghes-publicip" {
-  name                = "ghesPublicIP"
+  name                = "${var.stack_name}-ghesPublicIP"
   location            = "eastus"
   resource_group_name = azurerm_resource_group.ghes-group.name
   allocation_method   = "Dynamic"
@@ -57,7 +57,7 @@ resource "azurerm_public_ip" "ghes-publicip" {
 
 # Create Network Security Group and rule
 resource "azurerm_network_security_group" "ghes-nsg" {
-  name                = "ghesNetworkSecurityGroup"
+  name                = "${var.stack_name}-ghesNetworkSecurityGroup"
   location            = "eastus"
   resource_group_name = azurerm_resource_group.ghes-group.name
 
@@ -167,7 +167,7 @@ resource "azurerm_network_security_rule" "rule7" {
 
 # Create network interface
 resource "azurerm_network_interface" "ghes-nic" {
-  name                = "ghesNIC"
+  name                = "${var.stack_name}-ghesNIC"
   location            = "eastus"
   resource_group_name = azurerm_resource_group.ghes-group.name
 
@@ -220,14 +220,14 @@ resource "tls_private_key" "ghes_ssh" {
 
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "ghes-vm" {
-  name                  = "GHES-VM-v${var.ghes_version}"
+  name                  = "${var.stack_name}-GHES-VM-v${var.ghes_version}"
   location              = "eastus"
   resource_group_name   = azurerm_resource_group.ghes-group.name
   network_interface_ids = [azurerm_network_interface.ghes-nic.id]
   size                  = "Standard_DS13_v2" # CPU:8  	MEM (GB):56
 
   os_disk {
-    name                 = "ghesOsDisk"
+    name                 = "${var.stack_name}-ghesOsDisk"
     caching              = "ReadWrite"
     storage_account_type = "Premium_LRS"
   }
@@ -258,7 +258,7 @@ resource "azurerm_linux_virtual_machine" "ghes-vm" {
 }
 
 resource "azurerm_managed_disk" "ghes" {
-  name                 = "ghes-data-disk"
+  name                 = "${var.stack_name}-ghes-data-disk"
   location             = azurerm_resource_group.ghes-group.location
   resource_group_name  = azurerm_resource_group.ghes-group.name
   storage_account_type = "Standard_LRS"

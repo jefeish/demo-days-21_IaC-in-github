@@ -192,14 +192,13 @@ tail -f ~/demo-days-21_IaC-in-github/hubot/hubot.log
   ls -la ~/demo-days-21_IaC-in-github/IaC/terraform/ghes/azure/state
   ```
 
-  We store each **IaC run-state** under it's **user id** and **version** (eg `jefeish` / `2.22.11`).
-  > Note: if you want your users to create only one stack, regardless of the version, just remove the "version" from the [state-file path](https://github.com/jefeish/demo-days-21_IaC-in-github/blob/3d7300d78ec66dc773e0993b7cd35b3217d5b2ea/Hubot/scripts/iac-deploy.sh#L66).
+  We store each **IaC run-state** under it's **user id** (eg `jefeish`).
+  > Note: if you want your users to create stacks for specific version, just add the "version" to the [state-file path](https://github.com/jefeish/demo-days-21_IaC-in-github/blob/3d7300d78ec66dc773e0993b7cd35b3217d5b2ea/Hubot/scripts/iac-deploy.sh#L66).
 
   ```bash
   state
   └── jefeish
-    └── 2.22.11
-        └── terraform.tfstate
+    └── terraform.tfstate
   ```
 
    #### Immutable / Idempotent
@@ -211,7 +210,7 @@ tail -f ~/demo-days-21_IaC-in-github/hubot/hubot.log
 <br><br>
 ---
 
-### This concludes the small Demo Stack / IaC example
+### This concludes the small `IaC / Demo Stack` example.
 
 ![taf](docs/images/happy-xs.png) 
 

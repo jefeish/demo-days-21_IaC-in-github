@@ -18,7 +18,6 @@ variable ghes_version {
   type = string
   default = "2.22.7"
 }
-
 variable vpc_id {
   type = string
   default = "vpc-315cef56"   # us-west-1

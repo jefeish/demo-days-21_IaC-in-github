@@ -9,7 +9,7 @@
 #/      iac-deploy.sh -a <apply|destroy> -c <aws|azure> -v <version> -o <owner>
 #/   
 #/      Example:
-#/          iac-deploy.sh 
+#/          iac-deploy.sh -a apply -c aws -v 2.22.13 -o jefeish
 #/
 #/
 #/  REQUIREMENTS:
@@ -56,6 +56,8 @@ else
     usage
 fi
 
+echo "Starting to run a Terraform '${ACTION}' job for '${OWNER}'" >> ${HUBOT_LOG}
+
 if [[ ! "${PROVIDER}" =~ ^aws$|^azure$ ]]; then
     echo "@${OWNER} I am sorry I don't know the target environment [${PROVIDER}]"
     exit 1
@@ -63,13 +65,13 @@ fi
 
 # set the Terraform environment
 TERRAFORM_PLAN_PATH="$(PWD)/../IaC/terraform/ghes/$(echo ${PROVIDER}| awk '{ print tolower($0) }')"
-TERRAFORM_STATE_PATH="./state/${OWNER}/${VERSION}/terraform.tfstate"
+TERRAFORM_STATE_PATH="./state/${OWNER}/terraform.tfstate"
 
 # switch to the Terraform IaC
 cd ${TERRAFORM_PLAN_PATH}/
 
 # if the state-file path does not exist, create it
-[ ! -d "./state/${OWNER}/${VERSION}/" ] && mkdir -p ./state/${OWNER}/${VERSION}/
+[ ! -d "./state/${OWNER}/" ] && mkdir -p ./state/${OWNER}/
 
 ${CMD} init -no-color 2>&1 > ${HUBOT_LOG}
 
@@ -80,14 +82,17 @@ else
     echo "${OWNER}, I initialized GHES (v${VERSION})" >> ${HUBOT_LOG}
 fi
 
-echo ":wave: @${OWNER}, I am now working on your IaC request... this might take moment"
+echo ":wave: @${OWNER}, I am now working on your Infrastructure request... this might take moment"
 
-echo 'yes' | ${CMD} ${ACTION} -no-color -var="ghes_version=${VERSION}" -state=${TERRAFORM_STATE_PATH} 2>&1 >> ${HUBOT_LOG}
+echo 'yes' | ${CMD} ${ACTION} -no-color -var="stack_name=${OWNER}" -var="ghes_version=${VERSION}" -state=${TERRAFORM_STATE_PATH} 2>&1 >> ${HUBOT_LOG}
 
 if [ "$?" = "1" ]; then
     echo ":wave: @${OWNER}, sorry but I failed to complete your GHES (v${VERSION}) infrastructure request "
     exit 1
 else
     echo ":wave: @${OWNER}, I am finished"
-    echo "$(${CMD} output -no-color -state=${TERRAFORM_STATE_PATH} )"
+    # 'destroy' does not have terraform output
+    if [ "${ACTION}" = "apply" ]; then
+        echo "$(${CMD} output -no-color -state=${TERRAFORM_STATE_PATH} )"
+    fi
 fi

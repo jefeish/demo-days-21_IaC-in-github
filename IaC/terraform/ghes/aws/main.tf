@@ -4,6 +4,10 @@ provider "aws" {
   region                  = var.region
 }
 
+resource "random_id" "stack_id" {
+  byte_length = 2
+}
+
 # ##############################################################################
 # AWS User-Date template
 # ##############################################################################
@@ -30,7 +34,7 @@ data "template_file" "ghes_user_data" {
 # AWS Security Group
 # ##############################################################################
 resource "aws_security_group" "ghes" {
-  name   = "${var.stack_name}-ghes-test-sg"
+  name   = "${var.stack_name}-ghes-test-sg-${random_id.stack_id.hex}"
   vpc_id = var.vpc_id  
 
   ingress {
@@ -105,7 +109,7 @@ resource "aws_security_group" "ghes" {
 # AWS SSM Setup | Profile -> Role -> Policy (has Permissions)
 # ##############################################################################
 resource "aws_iam_instance_profile" "ghes" {
-  name = "${var.stack_name}-ghes-profile"
+  name = "${var.stack_name}-ghes-profile${random_id.stack_id.hex}"
   role = aws_iam_role.ghes.name
 }
 
@@ -192,7 +196,7 @@ resource "aws_instance" "ghes" {
   }
 
   tags = {
-    Name = "${var.stack_name}-ghes-v${var.ghes_version}"
+    Name = "${var.stack_name}-ghes-v${var.ghes_version}-${random_id.stack_id.hex}"
   }
 }
 
