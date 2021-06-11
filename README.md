@@ -205,7 +205,6 @@ tail -f ~/demo-days-21_IaC-in-github/hubot/hubot.log
 
    - We can destroy the full stack, with all its resources and recreate it at any time
    - We do not create multiple instances of the same version when we re-run the same IaC
-   > Note: We do allow for multiple stacks of different versions
 
 <br><br>
 ---
