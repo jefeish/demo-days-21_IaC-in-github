@@ -193,7 +193,7 @@ tail -f ~/demo-days-21_IaC-in-github/hubot/hubot.log
   ```
 
   We store each **IaC run-state** under it's **user id** and **version** (eg `jefeish` / `2.22.11`).
-  > Note: if you want your users to create only one stack, regardless of the version, just remove the "version" from the [state-file path]().
+  > Note: if you want your users to create only one stack, regardless of the version, just remove the "version" from the [state-file path](https://github.com/jefeish/demo-days-21_IaC-in-github/blob/3d7300d78ec66dc773e0993b7cd35b3217d5b2ea/Hubot/scripts/iac-deploy.sh#L66).
 
   ```bash
   state

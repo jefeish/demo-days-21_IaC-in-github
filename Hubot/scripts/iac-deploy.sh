@@ -65,7 +65,7 @@ fi
 TERRAFORM_PLAN_PATH="$(PWD)/../IaC/terraform/ghes/$(echo ${PROVIDER}| awk '{ print tolower($0) }')"
 TERRAFORM_STATE_PATH="./state/${OWNER}/${VERSION}/terraform.tfstate"
 
-# execute the Terraform IaC
+# switch to the Terraform IaC
 cd ${TERRAFORM_PLAN_PATH}/
 
 # if the state-file path does not exist, create it
@@ -77,18 +77,17 @@ if [ "$?" = "1" ]; then
     echo ":wave: @${OWNER}, failed to initialize"
     exit 1
 else
-    echo ":wave: @${OWNER}, I initialized GHES (v${VERSION})"
+    echo "${OWNER}, I initialized GHES (v${VERSION})" >> ${HUBOT_LOG}
 fi
 
 echo ":wave: @${OWNER}, I am now working on your IaC request... this might take moment"
-# old fashion debugging
-#echo "${CMD} ${ACTION} -no-color -var=\"ghes_version=${VERSION}\" -state=${TERRAFORM_STATE_PATH} 2>&1 >> ${HUBOT_LOG}"
-# set -x
+
 echo 'yes' | ${CMD} ${ACTION} -no-color -var="ghes_version=${VERSION}" -state=${TERRAFORM_STATE_PATH} 2>&1 >> ${HUBOT_LOG}
-echo "$? = 1"
+
 if [ "$?" = "1" ]; then
     echo ":wave: @${OWNER}, sorry but I failed to complete your GHES (v${VERSION}) infrastructure request "
     exit 1
 else
+    echo ":wave: @${OWNER}, I am finished"
     echo "$(${CMD} output -no-color -state=${TERRAFORM_STATE_PATH} )"
 fi
