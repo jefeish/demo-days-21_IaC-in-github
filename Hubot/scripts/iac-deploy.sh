@@ -27,6 +27,8 @@ PROVIDER=""
 ACTION="plan"
 VERSION="3.1.0"
 OWNER="demo"
+CMD="terraform-v0.15.0"
+HUBOT_LOG="$PWD/hubot.log"
 
 function usage() {
     grep '^#/' <"$0" | cut -c4-
@@ -54,32 +56,39 @@ else
     usage
 fi
 
+if [[ ! "${PROVIDER}" =~ ^aws$|^azure$ ]]; then
+    echo "@${OWNER} I am sorry I don't know the target environment [${PROVIDER}]"
+    exit 1
+fi
+
 # set the Terraform environment
-TERRAFORM_PLAN_PATH="/Users/jefeish/projects/demo-days-21_IaC-in-github/IaC/terraform/ghes/$(echo ${PROVIDER}| awk '{ print tolower($0) }')"
+TERRAFORM_PLAN_PATH="$(PWD)/../IaC/terraform/ghes/$(echo ${PROVIDER}| awk '{ print tolower($0) }')"
 TERRAFORM_STATE_PATH="./state/${OWNER}/${VERSION}/terraform.tfstate"
 
 # execute the Terraform IaC
-# echo "cd  ${TERRAFORM_PLAN_PATH}/ && terraform ${ACTION} -var=\"ghes_version=${VERSION}\" -state=${TERRAFORM_STATE_PATH}"
 cd ${TERRAFORM_PLAN_PATH}/
 
-r1=$(terraform-v0.15.0 init -no-color)
+# if the state-file path does not exist, create it
+[ ! -d "./state/${OWNER}/${VERSION}/" ] && mkdir -p ./state/${OWNER}/${VERSION}/
+
+${CMD} init -no-color 2>&1 > ${HUBOT_LOG}
 
 if [ "$?" = "1" ]; then
-    echo "@${OWNER} :wave:, failed to initialize"
+    echo ":wave: @${OWNER}, failed to initialize"
     exit 1
 else
-    echo "@${OWNER} :wave:, initialized GHES (v${VERSION})"
+    echo ":wave: @${OWNER}, I initialized GHES (v${VERSION})"
 fi
 
-echo ":wave: @${OWNER}, now building your _IaC_"
-set -x
-echo 'yes' | terraform-v0.15.0 ${ACTION} -state=${TERRAFORM_STATE_PATH}
-
+echo ":wave: @${OWNER}, I am now working on your IaC request... this might take moment"
+# old fashion debugging
+#echo "${CMD} ${ACTION} -no-color -var=\"ghes_version=${VERSION}\" -state=${TERRAFORM_STATE_PATH} 2>&1 >> ${HUBOT_LOG}"
+# set -x
+echo 'yes' | ${CMD} ${ACTION} -no-color -var="ghes_version=${VERSION}" -state=${TERRAFORM_STATE_PATH} 2>&1 >> ${HUBOT_LOG}
+echo "$? = 1"
 if [ "$?" = "1" ]; then
-    echo ":wave: @${OWNER}, sorry but I failed to stand up your GHES (v${VERSION}) infrastructure :( "
-    echo ">>>> $r2"
+    echo ":wave: @${OWNER}, sorry but I failed to complete your GHES (v${VERSION}) infrastructure request "
     exit 1
 else
-    r3=$(terraform-v0.15.0 output -no-color -state=${TERRAFORM_STATE_PATH} )
-    echo $r3
+    echo "$(${CMD} output -no-color -state=${TERRAFORM_STATE_PATH} )"
 fi

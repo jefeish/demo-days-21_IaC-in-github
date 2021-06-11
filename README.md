@@ -90,6 +90,13 @@ For simplicity let's assume you cloned it into your **Home-Folder** (`~/`)
     export HUBOT_SLACK_TOKEN=xoxb-12345...
     ```
 
+- Set the **Hubot Logfile** as an environment variable
+
+    ```bash
+    export HUBOT_LOG_FILE=~/demo-days-21_IaC-in-github/hubot.log
+    export HUBOT_LOG_LEVEL=debug
+    ```
+
 - Connect the **Hubot App** with the **Slack Bot**
 
     ```bash
@@ -162,25 +169,31 @@ tail -f ~/demo-days-21_IaC-in-github/hubot/hubot.log
 
 #### Let's check what got created
 
-- The GitHub WebUI should start with this (...got to bring your licencse :shrug:)
+- ### The GitHub WebUI should start with this (...got to bring your licencse :shrug:)
 
   ![ghes-ui](docs/images/ghes-ui.png)
 
-- The Azure resource-group should look similar to this...
+<br><br>
+- ### The Azure resource-group should look similar to this...
 
   ![az-resource-group](docs/images/az-resource-group.png)
 
-  
+---
+
+### Step 5
+
 #### Some IaC items to look at (inside the "box")
 
 - Some details on the **State File(s)**
 
   Have a look at the state folder
+
   ```bash
   ls -la ~/demo-days-21_IaC-in-github/IaC/terraform/ghes/azure/state
   ```
-  We store each IaC run under it's user id (eg `jefeish`).
- 
+
+  We store each **IaC run-state** under it's **user id** and **version** (eg `jefeish` / `2.22.11`).
+  > Note: if you want your users to create only one stack, regardless of the version, just remove the "version" from the [state-file path]().
 
   ```bash
   state
@@ -195,5 +208,14 @@ tail -f ~/demo-days-21_IaC-in-github/hubot/hubot.log
    - We do not create multiple instances of the same version when we re-run the same IaC
    > Note: We do allow for multiple stacks of different versions
 
+<br><br>
+---
+
+### This concludes the small Demo Stack / IaC example
+
+![taf](docs/images/happy-xs.png) 
+
+## ...that's all folks !
+<br><br>
 [:arrow_up: Top](#Top) 
 ![dot](docs/images/cut-here.png)
