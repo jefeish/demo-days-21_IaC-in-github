@@ -149,7 +149,7 @@ tail -f ~/demo-days-21_IaC-in-github/hubot/hubot.log
 - Tell hubot (in Slack) to run this command
 
     ```bash
-    hubot demo stack build ghes -v 2.22.11 -c azure 
+    hubot demo stack build ghes -v 3.1.0 -c azure 
     ```
 
     > Note: since we are directly communicating with **Hubot**, the initial **'hubot'** statement is optional, as soon as you install the Bot in Slack channels you will have to address the Bot by it's name :smile:
